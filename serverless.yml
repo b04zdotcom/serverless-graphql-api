@@ -1,0 +1,58 @@
+service: graphql-api
+
+plugins:
+- serverless-plugin-include-dependencies
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:us-east-1:*:*
+
+package:
+  exclude:
+    - lib/**
+    - .eslintrc
+
+functions:
+  graphql:
+    handler: build/handler.graphql
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+
+  graphiql:
+    handler: build/handler.graphiql
+    events:
+      - http:
+          path: graphiql
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    TodosDynamyDbTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: 'songs'

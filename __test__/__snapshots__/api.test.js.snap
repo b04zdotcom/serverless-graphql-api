@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolvers createSong() success Create new song in DB 1`] = `
+Object {
+  "body": "{\\"data\\":{\\"createSong\\":{\\"title\\":\\"A New Song\\",\\"artist\\":\\"A New Artist\\"}}}",
+  "headers": Object {
+    "Content-Type": "application/json",
+  },
+  "statusCode": 200,
+}
+`;
+
+exports[`resolvers getSongById() success Get single song from DB 1`] = `
+Object {
+  "body": "{\\"data\\":{\\"song\\":{\\"title\\":\\"foo\\"}}}",
+  "headers": Object {
+    "Content-Type": "application/json",
+  },
+  "statusCode": 200,
+}
+`;
+
+exports[`resolvers getSongs() success Get list of songs from DB 1`] = `
+Object {
+  "body": "{\\"data\\":{\\"songs\\":[{\\"title\\":\\"foo\\"}]}}",
+  "headers": Object {
+    "Content-Type": "application/json",
+  },
+  "statusCode": 200,
+}
+`;

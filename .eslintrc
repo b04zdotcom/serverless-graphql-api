@@ -1,0 +1,17 @@
+{
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
+    "globals": {
+      "expect": true,
+      "test": true,
+      "describe": true,
+      "afterEach": true,
+      "beforeEach": true
+    },
+    "rules": {
+      "no-underscore-dangle": off,
+      "no-console": off
+    }
+}

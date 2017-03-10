@@ -1,0 +1,40 @@
+{
+  "name": "graphql-api",
+  "scripts": {
+    "babel": "babel --presets es2015 lib -d build",
+    "deploy": "npm-run-all lint:js babel sls",
+    "jest": "jest --coverage",
+    "jest:u": "jest -u --coverage",
+    "lint:js": "eslint functions",
+    "lint:js:fix": "eslint functions --fix",
+    "sls": "sls deploy --verbose",
+    "test": "npm-run-all lint:js babel jest",
+    "test:u": "npm-run-all lint:js babel jest:u"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.20.0",
+    "babel-runtime": "^6.23.0",
+    "graphql": "^0.9.1",
+    "graphql-server-lambda": "^0.6.0",
+    "graphql-tools": "^0.10.1",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^1.6.1",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "jest-cli": "^19.0.2",
+    "lambda-tester": "^2.7.0",
+    "npm-run-all": "^4.0.2",
+    "serverless-plugin-include-dependencies": "^1.2.0"
+  }
+}

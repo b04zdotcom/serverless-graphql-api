@@ -37,8 +37,7 @@ functions:
     events:
       - http:
           path: graphiql
-          method: post
-          cors: true
+          method: get
 
 resources:
   Resources:

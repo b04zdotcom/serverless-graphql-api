@@ -41,7 +41,7 @@ functions:
 
 resources:
   Resources:
-    ArtistsDynamyDbTable:
+    ArtistsDynamoDbTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
@@ -55,7 +55,7 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: 'artists'
-    SongsDynamyDbTable:
+    SongsDynamoDbTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:

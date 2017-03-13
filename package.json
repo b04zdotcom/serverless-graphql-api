@@ -1,15 +1,16 @@
 {
   "name": "graphql-api",
   "scripts": {
-    "babel": "babel --presets es2015 lib -d build",
-    "deploy": "npm-run-all lint:js babel sls",
+    "babel": "babel --presets es2015 build -d build",
+    "copy": "rsync -r lib/ build",
+    "deploy": "npm-run-all lint:js copy babel sls",
     "jest": "jest --coverage",
     "jest:u": "jest -u --coverage",
     "lint:js": "eslint functions",
     "lint:js:fix": "eslint functions --fix",
     "sls": "sls deploy --verbose",
-    "test": "npm-run-all lint:js babel jest",
-    "test:u": "npm-run-all lint:js babel jest:u"
+    "test": "npm-run-all lint:js copy babel jest",
+    "test:u": "npm-run-all lint:js copy babel jest:u"
   },
   "babel": {
     "presets": [
@@ -19,6 +20,7 @@
   "dependencies": {
     "aws-sdk": "^2.20.0",
     "babel-runtime": "^6.23.0",
+    "gql-merge": "0.0.4",
     "graphql": "^0.9.1",
     "graphql-server-lambda": "^0.6.0",
     "graphql-tools": "^0.10.1",
@@ -35,6 +37,6 @@
     "jest-cli": "^19.0.2",
     "lambda-tester": "^2.7.0",
     "npm-run-all": "^4.0.2",
-    "serverless-plugin-include-dependencies": "^1.2.0"
+    "serverless-plugin-include-dependencies": "2.0.0"
   }
 }

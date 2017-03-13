@@ -2,7 +2,7 @@
 
 exports[`resolvers createSong() success Create new song in DB 1`] = `
 Object {
-  "body": "{\\"data\\":{\\"createSong\\":{\\"title\\":\\"A New Song\\",\\"artist\\":\\"A New Artist\\"}}}",
+  "body": "{\\"data\\":{\\"createSong\\":{\\"title\\":\\"A New Song\\",\\"duration\\":120}}}",
   "headers": Object {
     "Content-Type": "application/json",
   },

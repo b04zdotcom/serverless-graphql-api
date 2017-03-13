@@ -64,7 +64,7 @@ describe('resolvers', () => {
         httpMethod: 'POST',
         headers: {},
         body: {
-          query: 'mutation { createSong(title: "A New Song", artist: "A New Artist", duration: 120) { title, artist } }',
+          query: 'mutation { createSong(title: "A New Song", artist: "123", duration: 120) { title, duration } }',
         },
       };
 

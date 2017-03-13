@@ -1,7 +1,7 @@
 service: graphql-api
 
-plugins:
-- serverless-plugin-include-dependencies
+# plugins:
+# - serverless-plugin-include-dependencies
 
 provider:
   name: aws
@@ -22,6 +22,8 @@ package:
   exclude:
     - lib/**
     - .eslintrc
+    - coverage
+    - __test__
 
 functions:
   graphql:

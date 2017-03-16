@@ -19,7 +19,7 @@ Run the `deploy` script to create the Lambda Function and API Gateway for GraphQ
 npm run deploy
 ```
 
-## Queryies and Mutations
+## Queries and Mutations
 Query the GraphQL server using the [GraphiQL.app](https://github.com/skevy/graphiql-app). If you have Homebrew installed on OSX run
 ```
 brew cask install graphiql
@@ -69,7 +69,7 @@ mutation {
 ```
 
 ### Queries
-Query the server using the following pattern
+#### Example query
 ```
 {
   songs {
@@ -85,7 +85,7 @@ Query the server using the following pattern
 }
 ```
 
-This example query will return a result similar to this
+This query will return a result similar to this
 ```
 {
   "data": {

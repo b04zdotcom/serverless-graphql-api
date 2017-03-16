@@ -1,4 +1,4 @@
-# Serverless GraphQL Server using Lambda and DynamoDB
+# Serverless GraphQL API using Lambda and DynamoDB
 GraphQL Lambda Server using [graphql-server-lambda](https://github.com/apollographql/graphql-server/tree/master/packages/graphql-server-lambda) from [Apollo](http://dev.apollodata.com/).
 
 [graphql-tools](https://github.com/apollographql/graphql-tools) and [gql-merge](https://github.com/liamcurry/gql/tree/master/packages/gql-merge) are used to generate the schema.

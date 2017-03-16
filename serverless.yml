@@ -34,13 +34,6 @@ functions:
           method: post
           cors: true
 
-  graphiql:
-    handler: build/handler.graphiql
-    events:
-      - http:
-          path: graphiql
-          method: get
-
 resources:
   Resources:
     ArtistsDynamoDbTable:

@@ -1,0 +1,106 @@
+# Serverless GraphQL Server using Lambda and DynamoDB
+GraphQL Lambda Server using [graphql-server-lambda](https://github.com/apollographql/graphql-server/tree/master/packages/graphql-server-lambda) from [Apollo](http://dev.apollodata.com/).
+
+[graphql-tools](https://github.com/apollographql/graphql-tools) and [gql-merge](https://github.com/liamcurry/gql/tree/master/packages/gql-merge) are used to generate the schema.
+
+
+## Setup
+Clone the repository and install the packages.
+
+```
+git clone https://github.com/boazdejong/serverless-graphql-api
+cd serverless-graphql-api
+npm install
+```
+
+## Deploy
+Run the `deploy` script to create the Lambda Function and API Gateway for GraphQL. This also creates two DynamoDB tables named `artists` and `songs`
+```
+npm run deploy
+```
+
+## Queryies and Mutations
+Query the GraphQL server using the [GraphiQL.app](https://github.com/skevy/graphiql-app). If you have Homebrew installed on OSX run
+```
+brew cask install graphiql
+```
+
+### Mutations
+The following mutations are available in this example.
+
+#### createArtist()
+Create an artist providing the first and last name as arguments. The id will be a generated uuid.
+```
+mutation {
+  createArtist(first_name: "Billy", last_name: "Crash") {
+    id
+  }
+}
+```
+
+#### createSong()
+Using the generated id from the artist you can create a song with the following mutation. Also provide a title and duration.
+```
+mutation {
+  createSong(artist: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", title: "Whatever", duration: 120) {
+    id
+  }
+}
+```
+
+#### updateArtist()
+```
+mutation {
+  updateArtist(id: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", first_name: "John", last_name: "Ruth") {
+    id
+    first_name
+    last_name
+  }
+}
+```
+
+#### updateSong()
+```
+mutation {
+  updateSong(id: "a8a0a060-071b-11e7-bd09-8562f101f7c2", artist: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", duration: 130, title: "A new title") {
+    id
+  }
+}
+```
+
+### Queries
+Query the server using the following pattern
+```
+{
+  songs {
+    id
+    title
+    duration
+    artist {
+      id
+      first_name
+      last_name
+    }
+  }
+}
+```
+
+This example query will return a result similar to this
+```
+{
+  "data": {
+    "songs": [
+      {
+        "id": "a8a0a060-071b-11e7-bd09-8562f101f7c2",
+        "title": "Whatever",
+        "duration": 120,
+        "artist": {
+          "id": "99a746e0-0734-11e7-b2fd-45ae0a3b9074",
+          "first_name": "Billy",
+          "last_name": "Crash"
+        }
+      }
+    ]
+  }
+}
+```

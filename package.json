@@ -6,8 +6,8 @@
     "deploy": "npm-run-all lint:js copy babel sls",
     "jest": "jest --coverage",
     "jest:u": "jest -u --coverage",
-    "lint:js": "eslint functions",
-    "lint:js:fix": "eslint functions --fix",
+    "lint:js": "eslint lib",
+    "lint:js:fix": "eslint lib --fix",
     "sls": "sls deploy --verbose",
     "test": "npm-run-all lint:js copy babel jest",
     "test:u": "npm-run-all lint:js copy babel jest:u"

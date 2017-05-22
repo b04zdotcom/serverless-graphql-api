@@ -30,7 +30,7 @@ The following mutations are available in this example.
 
 #### createArtist()
 Create an artist providing the first and last name as arguments. The id will be a generated uuid.
-```
+```graphql
 mutation {
   createArtist(first_name: "Billy", last_name: "Crash") {
     id
@@ -40,7 +40,7 @@ mutation {
 
 #### createSong()
 Using the generated id from the artist you can create a song with the following mutation. Also provide a title and duration.
-```
+```graphql
 mutation {
   createSong(artist: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", title: "Whatever", duration: 120) {
     id
@@ -49,7 +49,7 @@ mutation {
 ```
 
 #### updateArtist()
-```
+```graphql
 mutation {
   updateArtist(id: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", first_name: "John", last_name: "Ruth") {
     id
@@ -60,7 +60,7 @@ mutation {
 ```
 
 #### updateSong()
-```
+```graphql
 mutation {
   updateSong(id: "a8a0a060-071b-11e7-bd09-8562f101f7c2", artist: "99a746e0-0734-11e7-b2fd-45ae0a3b9074", duration: 130, title: "A new title") {
     id
@@ -70,7 +70,7 @@ mutation {
 
 ### Queries
 #### Example query
-```
+```graphql
 {
   songs {
     id
@@ -86,7 +86,7 @@ mutation {
 ```
 
 This query will return a result similar to this
-```
+```json
 {
   "data": {
     "songs": [

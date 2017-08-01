@@ -19,6 +19,7 @@ provider:
       Resource: arn:aws:dynamodb:us-east-1:*:*
 
 package:
+  excludeDevDependencies: false
   exclude:
     - lib/**
     - .eslintrc

@@ -1,9 +1,7 @@
 .DS_Store
 .serverless
 __test__
-build
 coverage
 node_modules
 npm-debug.log
-webpack.config.js
 yarn.lock

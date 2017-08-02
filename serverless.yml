@@ -1,7 +1,10 @@
 service: graphql-api
 
-# plugins:
-# - serverless-plugin-include-dependencies
+plugins:
+  - serverless-webpack
+
+custom:
+  webpackIncludeModules: true
 
 provider:
   name: aws
@@ -18,17 +21,9 @@ provider:
         - dynamodb:DeleteItem
       Resource: arn:aws:dynamodb:us-east-1:*:*
 
-package:
-  excludeDevDependencies: false
-  exclude:
-    - lib/**
-    - .eslintrc
-    - coverage
-    - __test__
-
 functions:
   graphql:
-    handler: build/handler.graphql
+    handler: lib/handler.graphql
     events:
       - http:
           path: graphql

@@ -1,7 +1,11 @@
-# Serverless GraphQL API using Lambda and DynamoDB
+#Serverless GraphQL API using Lambda and DynamoDB
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
+
 GraphQL Lambda Server using [graphql-server-lambda](https://github.com/apollographql/graphql-server/tree/master/packages/graphql-server-lambda) from [Apollo](http://dev.apollodata.com/).
 
 [graphql-tools](https://github.com/apollographql/graphql-tools) and [merge-graphql-schemas](https://github.com/okgrow/merge-graphql-schemas) are used to generate the schema.
+
+[serverless-webpack](https://github.com/elastic-coders/serverless-webpack) is used to transform ES6 with [Babel](https://babeljs.io/) and build the lambda.
 
 
 ## Setup

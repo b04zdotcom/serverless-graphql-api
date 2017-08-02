@@ -1,8 +1,9 @@
-node_modules
-coverage
-build
-.serverless
 .DS_Store
-npm-debug.log
-yarn.lock
+.serverless
 __test__
+build
+coverage
+node_modules
+npm-debug.log
+webpack.config.js
+yarn.lock

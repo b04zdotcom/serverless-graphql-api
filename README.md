@@ -1,4 +1,4 @@
-#Serverless GraphQL API using Lambda and DynamoDB
+# Serverless GraphQL API using Lambda and DynamoDB
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
 GraphQL Lambda Server using [graphql-server-lambda](https://github.com/apollographql/graphql-server/tree/master/packages/graphql-server-lambda) from [Apollo](http://dev.apollodata.com/).

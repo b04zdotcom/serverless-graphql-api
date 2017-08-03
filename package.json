@@ -31,7 +31,6 @@
     "jest-cli": "^20.0.4",
     "lambda-tester": "^3.0.2",
     "npm-run-all": "^4.0.2",
-    "serverless-plugin-include-dependencies": "^2.1.2",
     "serverless-webpack": "^2.2.0",
     "webpack": "^3.4.1",
     "webpack-node-externals": "^1.6.0"

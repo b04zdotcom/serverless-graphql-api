@@ -1,3 +1,5 @@
+![banner](https://user-images.githubusercontent.com/4102106/28945831-6b0b80b8-78a8-11e7-8e0f-7d4c46013663.png)
+
 # Serverless GraphQL API using Lambda and DynamoDB
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![Build Status](https://travis-ci.org/boazdejong/serverless-graphql-api.svg?branch=master)](https://travis-ci.org/boazdejong/serverless-graphql-api)

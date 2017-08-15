@@ -19,6 +19,10 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
+        - dynamodb:GetRecords
+        - dynamodb:GetShardIterator
+        - dynamodb:DescribeStream
+        - dynamodb:ListStreams
       Resource: arn:aws:dynamodb:us-east-1:*:*
 
 functions:
@@ -29,6 +33,23 @@ functions:
           path: graphql
           method: post
           cors: true
+  record:
+    handler: lib/handler.record
+    events:
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - ArtistsDynamoDbTable
+              - StreamArn
+          batchSize: 1
+      - stream:
+          type: dynamodb
+          arn:
+            Fn::GetAtt:
+              - SongsDynamoDbTable
+              - StreamArn
+          batchSize: 1
 
 resources:
   Resources:
@@ -36,6 +57,7 @@ resources:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
+        TableName: 'artists'
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -45,11 +67,13 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: 'artists'
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
     SongsDynamoDbTable:
       Type: AWS::DynamoDB::Table
       DeletionPolicy: Retain
       Properties:
+        TableName: 'songs'
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -59,4 +83,5 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: 'songs'
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES

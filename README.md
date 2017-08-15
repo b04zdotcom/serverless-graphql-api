@@ -111,3 +111,34 @@ This query will return a result similar to this
   }
 }
 ```
+
+## DynamoDB Streams
+This project also includes an example of capturing table activity with DynamoDB Streams.
+The `record` lambda function is triggered by two stream events. One for each table.
+
+In `serverless.yml`:
+```
+record:
+  handler: lib/handler.record
+  events:
+    - stream:
+        type: dynamodb
+        arn:
+          Fn::GetAtt:
+            - ArtistsDynamoDbTable
+            - StreamArn
+        batchSize: 1
+    - stream:
+        type: dynamodb
+        arn:
+          Fn::GetAtt:
+            - SongsDynamoDbTable
+            - StreamArn
+        batchSize: 1
+```
+
+The stream is enabled when defining the DynamoDB table in the `serverless.yml` resources.
+```
+StreamSpecification:
+  StreamViewType: NEW_AND_OLD_IMAGES
+```

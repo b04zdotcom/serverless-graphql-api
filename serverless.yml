@@ -8,7 +8,9 @@ custom:
 
 provider:
   name: aws
+  region: ap-northeast-2
   runtime: nodejs4.3
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -23,7 +25,7 @@ provider:
         - dynamodb:GetShardIterator
         - dynamodb:DescribeStream
         - dynamodb:ListStreams
-      Resource: arn:aws:dynamodb:us-east-1:*:*
+      Resource: arn:aws:dynamodb:${self:provider.region}:*:*
 
 functions:
   graphql:
